@@ -1,10 +1,13 @@
 import React from 'react'
 import './App.css'
+import Content from './components/Content'
 
 function App() {
 
   return (
-    <h1 className='text-red-600'>iniciando o projeto</h1>
+    <div>
+      <Content />
+    </div>
   )
 }
 
