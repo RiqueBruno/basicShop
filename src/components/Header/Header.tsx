@@ -44,9 +44,14 @@ function Header() {
         </Button>
       </div>
       <nav className="flex justify-between w-96">
-        <div className="flex justify-between">
-          <div>Categories</div>
-          <div>Favorites</div>
+        <div className="flex justify-between items-center">
+          <div className="mr-4">Categories 🔽</div>
+          <div>
+            <div>Favorites ❤️</div>
+            <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center lg:hidden">
+              ❤️
+            </div>
+          </div>
         </div>
         <div className="flex justify-between items-center">
           <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center">
