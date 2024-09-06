@@ -14,14 +14,6 @@ export const fetchProductsList = async (item: string) => {
   return results;
 };
 
-export const fetchcategories = async () => {
-  const response = await fetch(
-    `https://api.mercadolibre.com/sites/MLB/categories`,
-  );
-  const data = await response.json();
-  return data;
-};
-
 export const fetchProductsByCategoriesList = async (category: string) => {
   if (!category) throw new Error('Termo de busca não informado');
   const response = await fetch(

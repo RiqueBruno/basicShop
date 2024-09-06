@@ -8,6 +8,7 @@ import Cart from '../Cart/Cart';
 import search from '../../assets/icons/search.svg';
 import user from '../../assets/icons/user.svg';
 import heart from '../../assets/icons/blueheart.svg';
+import Category from '../Category/Category';
 
 function Header() {
   const navigate = useNavigate();
@@ -46,7 +47,9 @@ function Header() {
       </div>
       <nav className="flex justify-between w-96">
         <div className="flex justify-between items-center">
-          <div className="mr-4">Categories 🔽</div>
+          <div className="mr-4">
+            <Category />
+          </div>
           <div>
             <div>
               <Button text="" onClick={() => onClick('/favorite')}>
