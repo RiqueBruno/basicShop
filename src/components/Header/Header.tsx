@@ -3,9 +3,10 @@ import logo from '../../assets/icons/logo.svg';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 
-import search from '../../assets/icons/search.svg';
 import { useNavigate } from 'react-router-dom';
 import Cart from '../Cart/Cart';
+import search from '../../assets/icons/search.svg';
+import user from '../../assets/icons/user.svg';
 
 function Header() {
   const navigate = useNavigate();
@@ -48,7 +49,9 @@ function Header() {
           <div>Favorites</div>
         </div>
         <div className="flex justify-between items-center">
-          <div>Profile</div>
+          <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center">
+            <img src={user} alt="" className="h-8 w-8" />
+          </div>
           <div className="w-12 h-12 bg-white rounded-full flex justify-center items-center">
             <Cart />
           </div>
