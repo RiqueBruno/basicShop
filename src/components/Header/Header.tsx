@@ -7,13 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import search from '../../assets/icons/search.svg';
 import user from '../../assets/icons/user.svg';
+import heart from '../../assets/icons/blueheart.svg';
 
 function Header() {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = React.useState('');
 
-  const onClick = () => {
-    navigate(`/search?product=:${searchInput}`);
+  const onClick = (url:string) => {
+    navigate(url);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +34,7 @@ function Header() {
         />
         <Button
           text=""
-          onClick={onClick}
+          onClick={() => onClick(`/search?product=:${searchInput}`)}
           className="h-6 w-6 border-none absolute right-2"
         >
           <img
@@ -47,7 +48,14 @@ function Header() {
         <div className="flex justify-between items-center">
           <div className="mr-4">Categories 🔽</div>
           <div>
-            <div>Favorites ❤️</div>
+            <div>
+              <Button text="" onClick={() => onClick('/favorite')}>
+                <span>Favorites ❤️</span>
+                <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center lg:hidden">
+                  <img src={heart} alt="Botão para favoritos" className="h-8 w-8" />
+                </div>
+              </Button>
+            </div>
             <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center lg:hidden">
               ❤️
             </div>
