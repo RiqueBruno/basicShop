@@ -6,7 +6,7 @@ export default function Input({ className, label, type, placeholder, value, onCh
   return (
     <label
         htmlFor={label}
-        className='flex h-8 w-96 justify-between items-center'
+        className='flex h-6 md:h-8 md:w-96 justify-between items-center'
     >
         {label}
         <input
@@ -15,7 +15,7 @@ export default function Input({ className, label, type, placeholder, value, onCh
             value={value}
             onChange={onChange}
             {...props}
-            className={twMerge('border-none border-gray-300 rounded-md p-2 h-6', className)}
+            className={twMerge('border-none rounded-md p-2 h-6', className)}
         />
     </label>
   )

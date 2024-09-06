@@ -14,6 +14,7 @@ export default function Category() {
 
   const onClick = (id: string) => {
     navigate(`/search?category=${id}`);
+    setIsOpen(false);
   };
 
   return (
@@ -22,18 +23,18 @@ export default function Category() {
         id="dropdownDefaultButton"
         text=''
         onClick={toggleDropdown}
-        className="relative flex items-center justify-center text-blue-950 hover:border-b-2 hover:border-blue-500"
+        className="relative flex items-center justify-center text-blue-950 md:hover:border-b-2 md:hover:border-blue-500"
         type="button"
       >
-        <span>Categorias ▼</span>
-        <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center lg:hidden">
-            <img src={menu} className="h-8 w-8" alt="Botão do menu de categorias" />
+        <span className="hidden md:block">Categorias ▼</span>
+        <div className="w-8 h-8 border-2 border-blue-500 rounded-full flex items-center justify-center md:w-12 md:h-12 md:border-4 md:hidden">
+            <img src={menu} className="w-6 h-6 md:h-8 md:w-8" alt="Botão do menu de categorias" />
         </div>
       </Button>
       {isOpen && (
         <div
           id="dropdown"
-          className="absolute right-0 z-10 bg-yellow-500 divide-y divide-gray-100 rounded-lg shadow w-44"
+          className="absolute  md:right-0 z-10 bg-yellow-500 divide-y divide-gray-100 rounded-lg shadow w-44"
         >
           <ul
             className="py-2 text-sm text-blue-950 w-full"
