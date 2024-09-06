@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Categories } from '../../utils/categories';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
+import menu from '../../assets/icons/menu.svg';
 
 export default function Category() {
   const navigate = useNavigate();
@@ -21,10 +22,13 @@ export default function Category() {
         id="dropdownDefaultButton"
         text=''
         onClick={toggleDropdown}
-        className="relative text-blue-950 hover:border-b-2 hover:border-blue-500"
+        className="relative flex items-center justify-center text-blue-950 hover:border-b-2 hover:border-blue-500"
         type="button"
       >
-        Categorias ▼
+        <span>Categorias ▼</span>
+        <div className="w-12 h-12 border-4 border-blue-500 mr-4 rounded-full flex items-center justify-center lg:hidden">
+            <img src={menu} className="h-8 w-8" alt="Botão do menu de categorias" />
+        </div>
       </Button>
       {isOpen && (
         <div
