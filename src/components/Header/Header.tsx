@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 
 import search from '../../assets/icons/search.svg';
 import { useNavigate } from 'react-router-dom';
+import Cart from '../Cart/Cart';
 
 function Header() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function Header() {
   };
 
   return (
-    <header className="bg-yellow-400 w-full h-20 flex justify-between pl-4">
+    <header className="bg-yellow-400 w-full h-20 flex justify-between p-4">
       <img className="h-full w-28 p-1" src={logo} alt="logo basic shop" />
       <div className="relative flex justify-center items-center">
         <Input
@@ -41,14 +42,16 @@ function Header() {
           />
         </Button>
       </div>
-      <nav className='flex justify-between w-96'>
+      <nav className="flex justify-between w-96">
         <div className="flex justify-between">
           <div>Categories</div>
           <div>Favorites</div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <div>Profile</div>
-          <div>Cart</div>
+          <div className="w-12 h-12 bg-white rounded-full flex justify-center items-center">
+            <Cart />
+          </div>
         </div>
       </nav>
     </header>
