@@ -8,4 +8,5 @@ export interface CardProductProps {
     pictures?: object[];
     descriptions?: object[];
     warranty?: string;
+    typeCard: 'normal' | 'skeleton';
 }
