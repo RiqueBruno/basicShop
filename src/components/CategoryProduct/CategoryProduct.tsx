@@ -7,11 +7,11 @@ export default function CategoryProduct({
   category,
 }: CategoryProductProps) {
   return (
-    <section>
+    <section className="w-[90%] h-60 my-4">
       <header>
         <h2>{category}</h2>
       </header>
-      <div>
+      <div className="flex overflow-scroll overflow-y-hidden">
         {products.map((product, index) => (
           <CardProduct
             key={index}
