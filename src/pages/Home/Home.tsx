@@ -15,6 +15,7 @@ export default function Home() {
     cat3: [],
   });
   const [contrast, setContrast] = useState<ContrastProduct[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const cat1 = fetchProductsByCategoriesList('MLB1648');
@@ -37,19 +38,32 @@ export default function Home() {
         { category: 'Calçados, Roupas e Bolsas', product: values[5][0] },
         { category: 'Animais', product: values[6][0] },
       ]);
+      setIsLoading(false);
     });
   }, []);
 
   return (
-    <main>
+    <main className="w-full flex flex-col items-center">
       <h1>Home</h1>
       <section className="hidden md:block">
         <h2>Contrast Products</h2>
       </section>
-      <div>
-        <CategoryProduct products={category.cat1} category="Informática" />
-        <CategoryProduct products={category.cat2} category="Celulares" />
-        <CategoryProduct products={category.cat3} category="Casa" />
+      <div className="w-[90%] overflow-auto flex flex-col items-center justify-center">
+        <CategoryProduct
+          products={category.cat1}
+          isloading={isLoading}
+          category="Informática"
+        />
+        <CategoryProduct
+          products={category.cat2}
+          isloading={isLoading}
+          category="Celulares"
+        />
+        <CategoryProduct
+          products={category.cat3}
+          isloading={isLoading}
+          category="Casa"
+        />
       </div>
     </main>
   );
