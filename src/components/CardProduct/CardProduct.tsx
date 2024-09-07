@@ -4,12 +4,12 @@ export default function CardProduct(
   index: number,
   title: string,
   price: number,
-  image: string | `https://via.placeholder.com/150`
+  thumbnail: string | `https://via.placeholder.com/150`
 ) {
   return (
     <article key={index}>
       <div>
-        <img src={image} alt="Imagem do produto" />
+        <img src={thumbnail} alt="Imagem do produto" />
       </div>
       <header>
         <h3>{title}</h3>
