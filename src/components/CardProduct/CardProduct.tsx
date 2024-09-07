@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function CardProduct(
   index: number,
+  id: string,
   title: string,
   price: number,
   thumbnail: string | `https://via.placeholder.com/150`
