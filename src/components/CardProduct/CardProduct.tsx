@@ -3,14 +3,14 @@ import { CardProductProps } from '../../interfaces/CardProductProps';
 import Button from '../Button/Button';
 
 export default function CardProduct({
-  index,
+  key,
   id,
   title,
   price,
   thumbnail,
 }: CardProductProps) {
   return (
-    <article key={index}>
+    <article key={key}>
       <Button text="" id={id} onClick={() => {}}>
         <div>
           <img
