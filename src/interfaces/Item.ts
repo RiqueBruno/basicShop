@@ -4,7 +4,12 @@ export interface Item {
     price: number;
     initial_quantity: number;
     thumbnail: string;
-    pictures: object[];
+    pictures: picturesObj[];
     descriptions: object[];
     warranty: string;
+    category_id?: string;
+}
+
+interface picturesObj {
+    url: string;
 }
