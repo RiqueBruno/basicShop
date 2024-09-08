@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <main className="w-full flex flex-col items-center">
       <h1 className="hidden">Home</h1>
-      <section className="w-full h-60 flex items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500 py-20 my-10 shadow-blue-500 shadow-md">
+      <section className="w-full h-64 flex items-center justify-center bg-gradient-to-b from-cyan-500 to-blue-500 py-20 my-10 shadow-blue-500 shadow-md md:h-96 overflow-hidden">
         <Carousel items={highlightedItems} />
       </section>
       <div className="w-[90%] overflow-auto flex flex-col items-center justify-center">

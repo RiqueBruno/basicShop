@@ -16,7 +16,7 @@ export default function CategoryProduct({
               <div className="w-20 h-4 bg-gray-300 rounded-md mb-2" />
             </h2>
           </header>
-          <div className="flex overflow-scroll overflow-y-hidden border-y-2 w-full h-80 items-center">
+          <div className="flex overflow-hidden border-y-2 w-full h-80 items-center">
             {[...Array(20)].map((_, index) => (
               <article
                 key={index}
@@ -41,7 +41,7 @@ export default function CategoryProduct({
               {category}
             </h2>
           </header>
-          <div className="flex overflow-scroll overflow-y-hidden border-y-2 w-full h-80 items-center">
+          <div className="flex overflow-scroll overflow-y-hidden border-y-2 w-full h-80 items-center scrollbar scrollbar-thumb-blue-500 scrollbar-track-blue-200 md:scroll-m-2">
             {products.map((product, index) => (
               <article
                 key={index}
