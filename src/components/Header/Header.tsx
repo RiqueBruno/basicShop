@@ -22,11 +22,11 @@ function Header() {
   };
 
   return (
-    <header className="relative flex flex-col items-center justify-around bg-yellow-400 w-full h-32 rounded-b-[25%] shadow-md md:h-20 md:justify-between md:p-4 md:rounded-none">
+    <header className="relative flex flex-col items-center justify-around bg-yellow-400 w-full h-32 rounded-b-[25%] shadow-md md:h-20 md:justify-between md:p-4 md:rounded-none md:flex-row">
       <Button text="" className="z-50" onClick={() => onClick('/')}>
         <img className="h-full w-28 md:p-1" src={logo} alt="logo basic shop" />
       </Button>
-      <div className="relative w-60 h-2 flex justify-center items-center z-50">
+      <div className="relative w-60 h-2 flex justify-center items-center z-50 md:w-96">
         <Input
           type="text"
           placeholder="Procure por um Produto"
@@ -46,7 +46,7 @@ function Header() {
           />
         </Button>
       </div>
-      <nav className="absolute flex w-full h-full justify-between items-center pb-10 px-2 md:pb-0 md:px-0 md:w-96">
+      <nav className="absolute flex w-full h-full justify-between items-center pb-10 px-2 md:pb-0 md:px-0 md:w-96 md:relative">
         <div className="flex justify-between items-center">
           <div className="mr-4 z-50">
             <Category />
