@@ -36,7 +36,7 @@ function Header() {
         />
         <Button
           text=""
-          onClick={() => onClick(`/search?product=:${searchInput}`)}
+          onClick={() => onClick(`/search?product=${searchInput}`)}
           className="border-none absolute right-2 md:h-6 md:w-6"
         >
           <img
