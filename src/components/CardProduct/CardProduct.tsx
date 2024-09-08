@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardProductProps } from '../../interfaces/CardProductProps';
 import Button from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function CardProduct({
   id,
@@ -9,6 +10,7 @@ export default function CardProduct({
   thumbnail,
   typeCard,
 }: CardProductProps) {
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       {typeCard == 'skeleton' ? (
@@ -24,7 +26,7 @@ export default function CardProduct({
           <Button
             text=""
             id={id}
-            onClick={() => {}}
+            onClick={() => navigate(`/product/${id}`)}
             className="w-36 h-full flex flex-col items-center justify-around md:cursor-pointer"
           >
             <div className="w-28 h-28 object-cover rounded-lg mb-2">

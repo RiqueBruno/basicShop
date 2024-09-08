@@ -18,17 +18,21 @@ export default function Category() {
   };
 
   return (
-<div className="relative">
+    <div className="relative">
       <Button
         id="dropdownDefaultButton"
-        text=''
+        text=""
         onClick={toggleDropdown}
         className="relative flex items-center justify-center text-blue-950 md:hover:border-b-2 md:hover:border-blue-500"
         type="button"
       >
         <span className="hidden md:block">Categorias ▼</span>
         <div className="w-8 h-8 border-2 border-blue-500 rounded-full flex items-center justify-center md:w-12 md:h-12 md:border-4 md:hidden">
-            <img src={menu} className="w-6 h-6 md:h-8 md:w-8" alt="Botão do menu de categorias" />
+          <img
+            src={menu}
+            className="w-6 h-6 md:h-8 md:w-8"
+            alt="Botão do menu de categorias"
+          />
         </div>
       </Button>
       {isOpen && (

@@ -2,19 +2,18 @@ import React from 'react';
 import logo from '../../assets/icons/logo.svg';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-
-import { useNavigate } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import search from '../../assets/icons/search.svg';
 import user from '../../assets/icons/user.svg';
 import heart from '../../assets/icons/blueheart.svg';
 import Category from '../Category/Category';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = React.useState('');
 
-  const onClick = (url:string) => {
+  const onClick = (url: string) => {
     navigate(url);
   };
 
@@ -47,32 +46,34 @@ function Header() {
           />
         </Button>
       </div>
-
-      {/* Menu de navegação */}
       <nav className="absolute flex w-full h-full justify-between items-center pb-10 px-2 md:pb-0 md:px-0 md:w-96">
         <div className="flex justify-between items-center">
-          {/* Categorias */}
           <div className="mr-4 z-50">
             <Category />
           </div>
           <div>
-            {/* Botão de favoritos */}
             <div className="z-50">
               <Button text="" onClick={() => onClick('/favorite')}>
                 <span className="hidden md:block">Favorites ❤️</span>
                 <div className="w-8 h-8 border-2 border-blue-500 mr-4 rounded-full flex items-center justify-center md:w-12 md:h-12 md:border-4 md:hidden">
-                  <img src={heart} alt="Botão para favoritos" className="w-6 h-6 md:h-8 md:w-8" />
+                  <img
+                    src={heart}
+                    alt="Botão para favoritos"
+                    className="w-6 h-6 md:h-8 md:w-8"
+                  />
                 </div>
               </Button>
             </div>
           </div>
         </div>
         <div className="flex justify-between items-center">
-          {/* Botão de usuário */}
           <div className="w-8 h-8 border-2 border-blue-500 mr-4 rounded-full flex items-center justify-center md:w-12 md:h-12 md:border-4">
-            <img src={user} alt="Botão para abrir o perfil do usuário" className="w-6 h-6 md:h-8 md:w-8" />
+            <img
+              src={user}
+              alt="Botão para abrir o perfil do usuário"
+              className="w-6 h-6 md:h-8 md:w-8"
+            />
           </div>
-          {/* Botão de carrinho */}
           <div className="w-8 h-8 bg-white border-2 border-blue-500 rounded-full flex justify-center items-center md:w-12 md:h-12">
             <Cart />
           </div>
