@@ -11,7 +11,7 @@ export interface Item {
     attributes: atributesObj[];
 }
 
-interface picturesObj {
+export interface picturesObj {
     url: string;
 }
 
