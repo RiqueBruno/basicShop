@@ -8,8 +8,14 @@ export interface Item {
     descriptions: object[];
     warranty: string;
     category_id?: string;
+    attributes: atributesObj[];
 }
 
 interface picturesObj {
     url: string;
+}
+
+interface atributesObj {
+    name: string;
+    value_name: string;
 }
