@@ -8,12 +8,14 @@ import CarouselImage from '../../components/Carousel/CarouselImage';
 import { ItemCart } from '../../interfaces/ItemCart';
 import { getSavedCart, saveCartProduct } from '../../utils/cartFunctions';
 import { CartContext } from '../../context/CartContext';
+import Heart from '../../components/Heart/Heart';
 
 export default function Product() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [product, setProduct] = useState<Item>();
   const [pictures, setPictures] = useState<string[]>([]);
   const [onCart, setOnCart] = useState<boolean>();
+  const [checked, setChecked] = useState<boolean>(false);
   const urlPath = window.location.pathname;
   const searchParams = urlPath.split('/');
   const cartContext = useContext(CartContext);
@@ -37,7 +39,6 @@ export default function Product() {
         setCartItems(oldCart); //CarrinhoNovo
 
         const hasProdct = cartItems.some((item) => item.id === resolv.id);
-        console.log('hasProdct:', cartItems);
 
         setOnCart(hasProdct); //Produto no carrinho
       } catch (error) {
@@ -107,7 +108,14 @@ export default function Product() {
                     />
                   </Button>
                 )}
-                <p className="h-10 w-10 text-center">❤️</p>
+                <div className="w-2/4 md:w-1/4 flex items-center justify-center">
+                  <Heart
+                    product={product}
+                    checked={checked}
+                    setChecked={setChecked}
+                    value={product?.id || ''}
+                  />
+                </div>
               </div>
               <div className="w-full text-gray-600 text-sm">
                 <p>{`Quantidade: ${product?.initial_quantity}`}</p>
