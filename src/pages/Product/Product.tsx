@@ -65,11 +65,11 @@ export default function Product() {
   };
 
   return (
-    <section className="w-full h-full">
+    <main className="w-full h-full">
       {isLoading ? (
         <h1>Carregando</h1>
       ) : (
-        <div className="w-full h-full flex flex-col items-center justify-center p-4 mt-10">
+        <section className="w-full h-full flex flex-col items-center justify-center p-4 mt-10">
           <article className="w-[98%] h-96 flex border-2 border-blue-400 rounded-md md:w-[80%]">
             <div className="w-[46%] flex items-center justify-center border-r-2 border-gray-100 md:w-[50%]">
               <CarouselImage pictures={pictures} />
@@ -142,8 +142,8 @@ export default function Product() {
               </div>
             </div>
           </article>
-        </div>
+        </section>
       )}
-    </section>
+    </main>
   );
 }
