@@ -2,11 +2,11 @@ import React from 'react';
 import cart from '../../assets/icons/cart.svg';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { getSavedCartIDs } from '../../utils/cartFunctions';
+import { getSavedCart } from '../../utils/cartFunctions';
 
 export default function Cart() {
   const navigate = useNavigate();
-  const numberOfItems: number = getSavedCartIDs().length;
+  const numberOfItems = getSavedCart().length;
 
   const onClick = () => {
     navigate('/cart');
