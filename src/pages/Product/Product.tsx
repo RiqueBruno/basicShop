@@ -81,8 +81,8 @@ export default function Product() {
               <h2 className="text-blue-950 text-2xl pb-4">{`R$ ${product?.price.toFixed(2)}`}</h2>
               <div className="w-full flex md:items-center">
                 {onCart ? (
-                  <div className="w-2/4 md:w-2/4 text-white bg-gradient-to-b to-blue-800 from-blue-400 rounded-md py-1 mt-2 flex items-center justify-center">
-                    <p className="hidden md:block md:mx-4">
+                  <div className="w-2/4 md:w-3/4 text-white bg-gradient-to-b to-blue-800 from-blue-400 rounded-md py-1 mt-2 flex items-center justify-center">
+                    <p className="hidden md:block mx-4 md:w-full md:py-2 text-center">
                       Adicionado ao carrinho
                     </p>
                     <img
@@ -97,7 +97,7 @@ export default function Product() {
                     onClick={onClick}
                     className="w-2/4 md:w-2/4 text-white bg-gradient-to-b to-blue-800 from-blue-400 rounded-md py-1 mt-2 flex items-center justify-center"
                   >
-                    <p className="hidden md:block md:mx-4">
+                    <p className="hidden md:block md:mx-4 text-center">
                       Adicionar ao carrinho
                     </p>
                     <img
