@@ -7,11 +7,9 @@ export const getSavedCart = ():ItemCart[] | [] => {
 };
 
 //Função que adiciona um product ao carrinho.
-export const saveCartProduct = (id: ItemCart) => {
+export const saveCartProduct = (id: ItemCart[]) => {
   if (!id) throw new Error('Você deve fornecer um ID');
-
-  const cartProducts = getSavedCart();
-  const newCartProducts = [...cartProducts, id];
+  const newCartProducts = [ ...id];
   localStorage.setItem('cartProducts', JSON.stringify(newCartProducts));
 };
 

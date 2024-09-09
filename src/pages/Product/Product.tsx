@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { fetchProduct } from '../../utils/fetchFunctions';
 import { Item, picturesObj } from '../../interfaces/Item';
 import Button from '../../components/Button/Button';
@@ -7,6 +7,7 @@ import savedCart from '../../assets/icons/savedCart.svg';
 import CarouselImage from '../../components/Carousel/CarouselImage';
 import { ItemCart } from '../../interfaces/ItemCart';
 import { getSavedCart, saveCartProduct } from '../../utils/cartFunctions';
+import { CartContext } from '../../context/CartContext';
 
 export default function Product() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -15,6 +16,11 @@ export default function Product() {
   const [onCart, setOnCart] = useState<boolean>();
   const urlPath = window.location.pathname;
   const searchParams = urlPath.split('/');
+  const cartContext = useContext(CartContext);
+
+  if (!cartContext) return null;
+
+  const { cartItems, setCartItems } = cartContext;
 
   useEffect(() => {
     const fetchP = async () => {
@@ -22,10 +28,18 @@ export default function Product() {
         const data = await fetchProduct(searchParams[2]);
         const resolv = await Promise.resolve(data);
         const pics = resolv.pictures.map((item: picturesObj) => item.url);
-        hasProductOnCart();
-        setProduct(resolv);
-        setIsLoading(false);
-        setPictures([resolv.thumbnail, ...pics.slice(1, 8)]);
+        const oldCart = getSavedCart();
+
+        setProduct(resolv); //Produto
+        setIsLoading(false); //Carregamento
+        setPictures([resolv.thumbnail, ...pics.slice(1, 8)]); //Imagens
+
+        setCartItems(oldCart); //CarrinhoNovo
+
+        const hasProdct = cartItems.some((item) => item.id === resolv.id);
+        console.log('hasProdct:', cartItems);
+
+        setOnCart(hasProdct); //Produto no carrinho
       } catch (error) {
         console.error('Erro ao buscar produto:', error);
       }
@@ -40,17 +54,13 @@ export default function Product() {
         price: product?.price,
         quantity: 1,
       };
-      saveCartProduct(prodct);
-      hasProductOnCart();
+      const newCart = [...cartItems, prodct];
+      setCartItems(newCart);
+      saveCartProduct(newCart);
+      setOnCart(true);
     } catch (error) {
       console.error('Erro ao salvar produto no carrinho:', error);
     }
-  };
-
-  const hasProductOnCart = () => {
-    const cartProducts = getSavedCart();
-    const isOnCart = cartProducts.some((item) => item.id === product?.id);
-    setOnCart(isOnCart);
   };
 
   return (

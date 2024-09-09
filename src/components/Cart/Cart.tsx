@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 import cart from '../../assets/icons/cart.svg';
 import Button from '../Button/Button';
-import { useNavigate } from 'react-router-dom';
-import { getSavedCart } from '../../utils/cartFunctions';
 
 export default function Cart() {
   const navigate = useNavigate();
-  const numberOfItems = getSavedCart().length;
+  const cartContext = useContext(CartContext);
+
+  if (!cartContext) return null;
+
+  const { cartItems } = cartContext;
+  const numberOfItems = cartItems.length;
 
   const onClick = () => {
     navigate('/cart');
