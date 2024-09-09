@@ -41,7 +41,7 @@ export default function CategoryProduct({
               {category}
             </h2>
           </header>
-          <div className="flex overflow-scroll overflow-y-hidden border-y-2 w-full h-80 items-center scrollbar scrollbar-thumb-blue-500 scrollbar-track-blue-200 md:scroll-m-2">
+          <div className="flex overflow-scroll overflow-y-hidden border-y-2 w-full h-80 items-center scrollbar scrollbar-thumb-blue-500 scrollbar-thin scrollbar-track-transparent md:scroll-m-2">
             {products.map((product, index) => (
               <article
                 key={index}
