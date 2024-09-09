@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProduct } from '../../utils/fetchFunctions';
-import { Item } from '../../interfaces/Item';
+import { Item, picturesObj } from '../../interfaces/Item';
 import Button from '../../components/Button/Button';
 import addCart from '../../assets/icons/addCart.svg';
+import CarouselImage from '../../components/Carousel/CarouselImage';
 
 export default function Product() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -15,9 +16,11 @@ export default function Product() {
     const fetchP = async () => {
       try {
         const data = await fetchProduct(searchParams[2]);
-        const pictures = data.pictures.map((item: Item) => item.pictures.url);
+        const resolv = await Promise.resolve(data);
+        setProduct(resolv);
         setIsLoading(false);
-        setProduct(await Promise.resolve(data));
+        const pics = resolv.pictures.map((item: picturesObj) => item.url);
+        setPictures([resolv.thumbnail, ...pics.slice(1, 8)]);
       } catch (error) {
         console.error('Erro ao buscar produto:', error);
       }
@@ -33,11 +36,10 @@ export default function Product() {
         <div className="w-full h-full flex flex-col items-center justify-center p-4 mt-10">
           <article className="w-[98%] h-96 flex border-2 border-blue-400 rounded-md md:w-[80%]">
             <div className="w-[46%] flex items-center justify-center border-r-2 border-gray-100 md:w-[50%]">
-              <img
-                src={product?.thumbnail.replace('-I.', '-O.')}
-                alt={product?.title}
-                className="md:w-60 bg-cover bg-center"
-              />
+              {
+                //<img                 src={product?.thumbnail.replace('-I.', '-O.')}                alt={product?.title} />
+              }
+              <CarouselImage pictures={pictures} />
             </div>
             <div className="w-[54%] flex flex-col items-start justify-center pl-4 md:w-[50%]">
               <h1 className="text-blue-950 text-base mb-2 max-h-40 overflow-hidden w-40 md:w-[90%]">
