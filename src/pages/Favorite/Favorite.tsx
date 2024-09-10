@@ -28,6 +28,8 @@ export default function Favorite() {
         favorites={favorites}
         onRemoveFavorite={handleRemoveFavorite}
         onRemoveCart={() => {}}
+        cart={[]}
+        onAddCart={() => {}}
       />
     </div>
   );

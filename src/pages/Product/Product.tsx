@@ -54,6 +54,8 @@ export default function Product() {
         id: product?.id,
         price: product?.price,
         quantity: 1,
+        thumbnail: product?.thumbnail,
+        title: product?.title,
       };
       const newCart = [...cartItems, prodct];
       setCartItems(newCart);

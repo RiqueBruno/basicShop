@@ -1,5 +1,7 @@
 export interface ItemCart {
-    id: string | undefined;
-    price: number | undefined;
+    id: string;
+    price: number;
     quantity: number;
+    thumbnail: string | undefined;
+    title: string | undefined;
 }
