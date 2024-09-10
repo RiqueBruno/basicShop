@@ -31,5 +31,3 @@ Construir esse projeto foi uma grata experiência, pois eu aprendi muito com ele
 
 - [Deploy]()
 
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F0QmmjgyPvPlP8dJS48Zr0X%2FBasicShop%3Ft%3D274hggtk0DYPXQK0-1" allowfullscreen></iframe>
