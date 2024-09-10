@@ -8,6 +8,7 @@ function Button({
   children,
   text,
   onClick,
+  id,
   ...props
 }: buttonProps) {
   return (
@@ -22,6 +23,7 @@ function Button({
       onClick={onClick}
       style={style}
       {...props}
+      id={id}
     >
       {children ? children : text}
     </button>

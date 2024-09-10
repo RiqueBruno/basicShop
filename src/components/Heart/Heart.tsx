@@ -11,7 +11,7 @@ import { favProduct } from '../../interfaces/favProductInterface';
 
 type HeartProps = ComponentProps<'input'> & {
   checked: boolean;
-  setChecked: (checked: boolean) => void;
+  setChecked: (checked: boolean | ((prev: boolean) => boolean)) => void;
   value: string | boolean;
   product: Item | undefined;
 };
@@ -24,16 +24,15 @@ export default function Heart({
 }: HeartProps) {
   const onCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
+    setChecked((prev: boolean) => !prev);
     const favProduct = {
       id: product?.id,
       title: product?.title,
       thumbnail: product?.thumbnail,
     };
     if (isChecked) {
-      setChecked(isChecked);
       saveFavorite(favProduct); // Se estiver checado, salva como favorito
     } else {
-      setChecked(isChecked);
       removeFavProduct(favProduct); // Se desmarcado, remove dos favoritos
     }
   };
