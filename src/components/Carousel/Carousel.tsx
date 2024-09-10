@@ -56,7 +56,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           text="Ver mais"
           className="bg-gradient-to-t from-yellow-400 to-yellow-200 text-blue-600 font-bold p-2 rounded-md mt-2 md:w-1/2 md:mx-auto"
           onClick={() => {
-            navegate(`/search?category=${currentItem.product.id}`);
+            navegate(`/search?category=${currentItem.product.category_id}`);
           }}
         />
       </div>
