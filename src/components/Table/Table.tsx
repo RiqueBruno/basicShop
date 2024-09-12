@@ -32,7 +32,7 @@ export default function Table({
   const isFavorite = type === 'favorite' ? thFav[0] : thFav[1];
 
   return (
-    <table className="w-full h-full overflow-y-scroll md:w-3/4">
+    <table className="w-full h-full overflow-y-scroll">
       <thead>
         <tr>
           {isFavorite?.map((th, index) => (
