@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import cart from '../../assets/icons/cart.svg';
 import Button from '../Button/Button';
+import { getSavedCart } from '../../utils/cartFunctions';
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -10,8 +11,16 @@ export default function Cart() {
 
   if (!cartContext) return null;
 
-  const { cartItems } = cartContext;
+  const { cartItems, setCartItems } = cartContext;
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      const oldCart = getSavedCart();
+      setCartItems(oldCart);
+    }
+  }, [cartItems]);
+
   const numberOfItems = cartItems.length;
+  console.log('Renderizou o carrinho');
 
   const onClick = () => {
     navigate('/cart');

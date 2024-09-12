@@ -6,7 +6,7 @@ import addCart from '../../assets/icons/addCart.svg';
 import savedCart from '../../assets/icons/savedCart.svg';
 import CarouselImage from '../../components/Carousel/CarouselImage';
 import { ItemCart } from '../../interfaces/ItemCart';
-import { getSavedCart, saveCartProduct } from '../../utils/cartFunctions';
+import { saveCartProduct } from '../../utils/cartFunctions';
 import { CartContext } from '../../context/CartContext';
 import Heart from '../../components/Heart/Heart';
 
@@ -16,12 +16,12 @@ export default function Product() {
   const [pictures, setPictures] = useState<string[]>([]);
   const [onCart, setOnCart] = useState<boolean>();
   const [checked, setChecked] = useState<boolean>(false);
+
   const urlPath = window.location.pathname;
   const searchParams = urlPath.split('/');
+
   const cartContext = useContext(CartContext);
-
   if (!cartContext) return null;
-
   const { cartItems, setCartItems } = cartContext;
 
   useEffect(() => {
@@ -30,17 +30,13 @@ export default function Product() {
         const data = await fetchProduct(searchParams[2]);
         const resolv = await Promise.resolve(data);
         const pics = resolv.pictures.map((item: picturesObj) => item.url);
-        const oldCart = getSavedCart();
-
-        setProduct(resolv); //Produto
-        setIsLoading(false); //Carregamento
-        setPictures([resolv.thumbnail, ...pics.slice(1, 8)]); //Imagens
-
-        setCartItems(oldCart); //CarrinhoNovo
+        setProduct(resolv);
+        setIsLoading(false);
+        setPictures([resolv.thumbnail, ...pics.slice(1, 8)]);
 
         const hasProdct = cartItems.some((item) => item.id === resolv.id);
 
-        setOnCart(hasProdct); //Produto no carrinho
+        setOnCart(hasProdct);
       } catch (error) {
         console.error('Erro ao buscar produto:', error);
       }
