@@ -54,7 +54,9 @@ function Header() {
           <div>
             <div className="z-50">
               <Button text="" onClick={() => onClick('/favorite')}>
-                <span className="hidden md:block">Favorites ❤️</span>
+                <span className="hidden md:block md:hover:border-b-2 md:hover:border-blue-500 text-blue-950">
+                  Favoritos ❤️
+                </span>
                 <div className="w-8 h-8 border-2 border-blue-500 mr-4 rounded-full flex items-center justify-center md:w-12 md:h-12 md:border-4 md:hidden">
                   <img
                     src={heart}
