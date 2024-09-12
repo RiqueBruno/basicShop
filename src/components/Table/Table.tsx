@@ -2,6 +2,8 @@ import React from 'react';
 import { ItemCart } from '../../interfaces/ItemCart';
 import { favProduct } from '../../interfaces/favProductInterface';
 import heart from '../../assets/icons/heart.svg';
+import Button from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 type TableProps = {
   favorites: favProduct[];
@@ -22,6 +24,7 @@ export default function Table({
   onAddCart,
   onRemoveCart,
 }: TableProps) {
+  const navigate = useNavigate();
   const thFav: thF = [
     [' ', 'Nome', 'Favorito'],
     ['Produto', 'Quantidade', 'Preço'],
@@ -29,11 +32,11 @@ export default function Table({
   const isFavorite = type === 'favorite' ? thFav[0] : thFav[1];
 
   return (
-    <table className="w-4/5 h-full">
+    <table className="w-full h-full overflow-y-scroll">
       <thead>
         <tr>
           {isFavorite?.map((th, index) => (
-            <th key={index} className="text-start pl-2">{`${th}`}</th>
+            <th key={index} className="text-center pl-2">{`${th}`}</th>
           ))}
         </tr>
       </thead>
@@ -68,19 +71,23 @@ export default function Table({
           : cart.map((c, index) => (
               <tr key={index} className="border-2 rounded-md">
                 <td className="w-1/3 h-full">
-                  <div className="flex justify-center items-center flex-col text-center">
+                  <Button
+                    className="flex justify-center items-center flex-col text-center cursor-pointer hover:text-blue-700 md:flex-row"
+                    text=""
+                    onClick={() => navigate(`/product/${c.id}`)}
+                  >
                     <img src={c.thumbnail} alt={c.title} />
                     {c.title?.length && c.title.length > 20
                       ? c.title.substring(0, 20) + '...'
                       : c.title}
-                  </div>
+                  </Button>
                 </td>
                 <td className="w-full h-full flex items-center justify-center">
                   <div className="flex items-center justify-center">
                     <button
                       id={c.id}
                       onClick={() => onRemoveCart(c.id)}
-                      className="flex items-center justify-center h-10 w-10"
+                      className="flex items-center justify-center h-6 w-6 rounded-md hover:bg-gray-200"
                     >
                       -
                     </button>
@@ -88,13 +95,13 @@ export default function Table({
                     <button
                       id={c.id}
                       onClick={() => onAddCart(c.id)}
-                      className="flex items-center justify-center h-10 w-10"
+                      className="flex items-center justify-center h-6 w-6 rounded-md hover:bg-gray-200"
                     >
                       +
                     </button>
                   </div>
                 </td>
-                <td>{`R$ ${(c.quantity * c.price).toFixed(2)}`}</td>
+                <td className="text-center">{`R$ ${(c.quantity * c.price).toFixed(2)}`}</td>
               </tr>
             ))}
       </tbody>

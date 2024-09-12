@@ -57,19 +57,21 @@ export default function Cart() {
 
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center pt-10">
-      <Table
-        type="cart"
-        cart={cart}
-        onRemoveCart={onRemoveCart}
-        onAddCart={onAddCart}
-        onRemoveFavorite={() => {}}
-        favorites={[]}
-      />
+      <section className="w-4/5 h-full mb-4">
+        <Table
+          type="cart"
+          cart={cart}
+          onRemoveCart={onRemoveCart}
+          onAddCart={onAddCart}
+          onRemoveFavorite={() => {}}
+          favorites={[]}
+        />
+      </section>
       <p>{`Total: R$ ${total.toFixed(2)}`}</p>
       {cart.length > 0 && (
         <Button
           text=""
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4"
           onClick={() => navigate('/success')}
         >
           Finalizar compra
