@@ -50,12 +50,14 @@ export default function Product() {
 
   const onClick = () => {
     try {
+      if (!product) return;
+
       const prodct: ItemCart = {
-        id: product?.id,
-        price: product?.price,
+        id: product.id,
+        price: product.price,
         quantity: 1,
-        thumbnail: product?.thumbnail,
-        title: product?.title,
+        thumbnail: product.thumbnail,
+        title: product.title,
       };
       const newCart = [...cartItems, prodct];
       setCartItems(newCart);
