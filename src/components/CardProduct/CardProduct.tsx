@@ -22,7 +22,7 @@ export default function CardProduct({
           <div className="w-20 h-4 bg-gray-300 rounded-md" />
         </div>
       ) : (
-        <div className="h-full w-full">
+        <div className="h-full w-full hover:bg-blue-200 hover:rounded-md">
           <Button
             text=""
             id={id}
