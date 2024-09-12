@@ -82,7 +82,17 @@ export default function Product() {
   return (
     <main className="w-full h-full">
       {isLoading ? (
-        <h1>Carregando</h1>
+        <div className="w-full h-full flex flex-col items-center justify-center p-4 mt-10">
+          <div className="w-[98%] h-96 flex border-2 border-blue-400 rounded-md md:w-[80%]">
+            <div className="w-[46%] flex items-center justify-center border-r-2 border-gray-100 md:w-[50%] bg-gray-200 animate-pulse"></div>
+            <div className="w-[54%] flex flex-col items-start justify-center pl-4 md:w-[50%]">
+              <h1 className="text-blue-950 text-base mb-2 max-h-40 overflow-hidden w-40 md:w-[90%] bg-gray-200 animate-pulse"></h1>
+              <div className="mb-4 h-10 w-10 bg-gray-200 animate-pulse"></div>
+              <h2 className="pb-4 bg-gray-200 animate-pulse"></h2>
+              <div className="w-full flex md:items-center"></div>
+            </div>
+          </div>
+        </div>
       ) : (
         <section className="w-full h-full flex flex-col items-center justify-center p-4 mt-10">
           <article className="w-[98%] h-96 flex border-2 border-blue-400 rounded-md md:w-[80%]">
