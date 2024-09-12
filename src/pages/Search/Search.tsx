@@ -15,11 +15,8 @@ export default function Search() {
 
   const searchType = async () => {
     const searchParams = url.split('=');
-    console.log(searchParams);
-
     const searchKey = searchParams[0];
     const searchValues = searchParams[1].split(',');
-
     const promises = searchValues.map(async (id) => {
       if (searchKey == '?product') {
         const result = await fetchProductsList(id);
