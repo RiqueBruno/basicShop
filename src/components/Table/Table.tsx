@@ -32,11 +32,11 @@ export default function Table({
   const isFavorite = type === 'favorite' ? thFav[0] : thFav[1];
 
   return (
-    <table className="w-full h-full overflow-y-scroll">
+    <table className="w-full h-full overflow-y-scroll md:w-3/4">
       <thead>
         <tr>
           {isFavorite?.map((th, index) => (
-            <th key={index} className="text-center pl-2">{`${th}`}</th>
+            <th key={index} className="text-start pl-2">{`${th}`}</th>
           ))}
         </tr>
       </thead>
@@ -44,25 +44,35 @@ export default function Table({
         {type === 'favorite'
           ? favorites.map((favorite, index) => (
               <tr key={index} className="border-2 rounded-md">
-                <td className="w-1/3 h-full">
-                  <img src={favorite.thumbnail} alt={favorite.title} />
+                <td className="w-20 h-20 flex justify-end">
+                  <img
+                    src={favorite.thumbnail}
+                    alt={favorite.title}
+                    className="h-20 w-20"
+                  />
                 </td>
-                <td className="w-full h-full pl-2">
-                  {favorite.title?.length && favorite.title.length > 20
-                    ? favorite.title.substring(0, 20) + '...'
-                    : favorite.title}
+                <td className="w-3/4 h-full pl-2">
+                  <Button
+                    onClick={() => navigate(`/product/${favorite.id}`)}
+                    text=""
+                    className="flex justify-center items-center flex-col text-center cursor-pointer hover:text-blue-700 md:flex-row"
+                  >
+                    {favorite.title?.length && favorite.title.length > 20
+                      ? favorite.title.substring(0, 20) + '...'
+                      : favorite.title}
+                  </Button>
                 </td>
-                <td className="w-full h-full flex items-center justify-center">
+                <td className="w-20 h-20 flex items-start justify-start">
                   <button
                     id={favorite.id}
                     onClick={() => onRemoveFavorite(favorite.id ?? '')}
-                    className="flex items-center justify-center h-10 w-10"
+                    className="flex items-center justify-center h-full w-full"
                   >
                     <img
                       src={heart}
                       id={favorite.id}
-                      alt="favorito. clique para desfavoritar"
-                      className="h-full w-full"
+                      alt="favorito. clique para desfavoritar o produto"
+                      className="h-16 w-16 hover:scale-110"
                     />
                   </button>
                 </td>
