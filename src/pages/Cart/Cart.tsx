@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Table from '../../components/Table/Table';
+import { useNavigate } from 'react-router-dom';
 import {
   getSavedCart,
   removeCartProduct,
@@ -9,6 +10,7 @@ import { ItemCart } from '../../interfaces/ItemCart';
 import Button from '../../components/Button/Button';
 
 export default function Cart() {
+  const navigate = useNavigate();
   const [cart, setCart] = useState<ItemCart[]>(getSavedCart());
   const [total, setTotal] = useState<number>(0);
 
@@ -68,7 +70,7 @@ export default function Cart() {
         <Button
           text=""
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => alert('Compra realizada com sucesso!')}
+          onClick={() => navigate('/success')}
         >
           Finalizar compra
         </Button>

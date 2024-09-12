@@ -5,6 +5,7 @@ import Search from '../pages/Search/Search';
 import Product from '../pages/Product/Product';
 import Favorite from '../pages/Favorite/Favorite';
 import Cart from '../pages/Cart/Cart';
+import Success from '../pages/Success/Success';
 
 export default function Content() {
   return (
@@ -14,6 +15,7 @@ export default function Content() {
       <Route path="/cart" Component={Cart}></Route>
       <Route path="/favorite" Component={Favorite}></Route>
       <Route path="/product/:id" Component={Product}></Route>
+      <Route path="/success" Component={Success}></Route>
       <Route path="*">Page Not Found</Route>
     </Routes>
   );
