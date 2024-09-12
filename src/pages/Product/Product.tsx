@@ -68,6 +68,17 @@ export default function Product() {
     }
   };
 
+  const removeItem = (id: string) => {
+    try {
+      const newCart = cartItems.filter((item) => item.id !== id);
+      setCartItems(newCart);
+      saveCartProduct(newCart);
+      setOnCart(false);
+    } catch (error) {
+      console.error('Erro ao remover produto do carrinho:', error);
+    }
+  };
+
   return (
     <main className="w-full h-full">
       {isLoading ? (
@@ -86,21 +97,25 @@ export default function Product() {
               <h2 className="text-blue-950 text-2xl pb-4">{`R$ ${product?.price.toFixed(2)}`}</h2>
               <div className="w-full flex md:items-center">
                 {onCart ? (
-                  <div className="w-2/4 md:w-3/4 text-white bg-gradient-to-b to-blue-800 from-blue-400 rounded-md py-1 mt-2 flex items-center justify-center">
-                    <p className="hidden md:block mx-4 md:w-full md:py-2 text-center">
-                      Adicionado ao carrinho
+                  <Button
+                    text=""
+                    onClick={() => removeItem(product?.id || '')}
+                    className={`w-2/4 md:w-2/4 text-white bg-gradient-to-b to-red-800 from-red-400 rounded-md py-1 mt-2 flex items-center justify-center hover:from-red-600 hover:to-red-900 cursor-pointer `}
+                  >
+                    <p className="hidden md:block mx-4 md:w-full text-center">
+                      Remover ao carrinho
                     </p>
                     <img
                       src={savedCart}
                       alt="Item já está no carrinho"
                       className="h-10 w-10 md:hidden"
                     />
-                  </div>
+                  </Button>
                 ) : (
                   <Button
                     text=""
                     onClick={onClick}
-                    className="w-2/4 md:w-2/4 text-white bg-gradient-to-b to-blue-800 from-blue-400 rounded-md py-1 mt-2 flex items-center justify-center"
+                    className="w-2/4 md:w-2/4 text-white bg-gradient-to-b to-blue-800 from-blue-400 rounded-md py-1 mt-2 flex items-center justify-center hover:from-blue-600 hover:to-blue-900 cursor-pointer"
                   >
                     <p className="hidden md:block md:mx-4 text-center">
                       Adicionar ao carrinho
