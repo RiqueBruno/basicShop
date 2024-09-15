@@ -31,12 +31,12 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
   }
 
   return (
-    <div className="relative w-full h-96 overflow-hidden shadow-inner-lateral">
+    <div className="relative w-full h-96 overflow-hidden boxShadow">
       <div className="absolute top-0 left-0 flex animate-scroll md:animate-scrollDesktop">
-        {items.concat(items).map((item) => (
+        {items.concat(items).map((item, index) => (
           <article
-            key={item.id}
-            className="w-72 md:w-[60rem] h-96 flex-shrink-0 p-2 flex justify-center items-center"
+            key={`${item.id}-${index}-${Math.random()}-Carousel`}
+            className="w-96 md:w-[60rem] h-96 flex-shrink-0 flex justify-center items-center mx-12 md:mx-0 md:bg-transparent p-6 md:p-2"
           >
             <div className="w-96 h-90 rounded-md bg-white border border-transparent flex items-center justify-center">
               <img

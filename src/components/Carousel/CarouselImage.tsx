@@ -22,7 +22,7 @@ const CarouselImage: React.FC<CarouselProps> = ({ pictures }) => {
       <div className="h-full w-full md:w-[10%] flex md:flex-col flex-wrap md:flex-nowrap justify-center items-center md:items-start md:justify-normal">
         {pictures.map((item, index) => (
           <Button
-            key={index}
+            key={`${index}-${Math.random()}-CarouselImage`}
             onClick={() => setCurrentIndex(index)}
             text=""
             className={`w-8 h-8 ${currentIndex === index ? 'border-2 border-blue-400' : 'border-2 border-gray-100'}`}
