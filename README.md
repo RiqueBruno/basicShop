@@ -1,6 +1,6 @@
 # BasicShop
 
-**BasicShop** é um e-commerce desenvolvido com **Vite**, **React**, **Typescript**, **Tailwind CSS**, e **useContext**. O projeto utiliza a API do **Mercado Livre** para exibir produtos e categorias, e armazena informações como favoritos e carrinho de compras no **LocalStorage**.
+**BasicShop** é um e-commerce desenvolvido com **Mobile First**, **Vite**, **React**, **Typescript**, **Tailwind CSS**, e **useContext**. O projeto utiliza a API do **Mercado Livre** para exibir produtos e categorias, e armazena informações como favoritos e carrinho de compras no **LocalStorage**.
 
 ## Experiência
 
