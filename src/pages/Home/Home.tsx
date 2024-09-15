@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProductsByCategoriesList } from '../../utils/fetchFunctions';
-import CategoryProduct from '../../components/CategoryProduct/CategoryProduct';
 import { Item } from '../../interfaces/Item';
 import Carousel from '../../components/Carousel/Carousel';
 import { Categories } from '../../utils/categories';
+import CarouselCard from '../../components/CategoryProduct/CarouselCards';
 
 interface ContrastProduct {
   id: string;
@@ -83,17 +83,17 @@ export default function Home() {
         <Carousel items={highlightedItems} />
       </section>
       <div className="w-[90%] overflow-auto flex flex-col items-center justify-center">
-        <CategoryProduct
+        <CarouselCard
           products={category.cat1}
           isloading={isLoading}
           category="Informática"
         />
-        <CategoryProduct
+        <CarouselCard
           products={category.cat2}
           isloading={isLoading}
           category="Celulares"
         />
-        <CategoryProduct
+        <CarouselCard
           products={category.cat3}
           isloading={isLoading}
           category="Casa"
