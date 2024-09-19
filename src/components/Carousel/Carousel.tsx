@@ -19,19 +19,20 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 
   if (items.length === 0) {
     return (
-      <div className="w-full h-96 flex justify-center items-center p-2 md:p-8">
+      <section className="w-full h-96 flex justify-center items-center p-2 md:p-8">
         <div className="w-52 h-52 rounded-md bg-gray-300 mb-2 animate-pulse" />
         <div className="w-72 h-full flex flex-col justify-between p-2 md:justify-center">
           <div className="w-3/4 h-10 bg-gray-300 rounded-md mb-2 animate-pulse" />
           <div className="w-20 h-6 bg-gray-300 rounded-md mb-2 animate-pulse" />
           <div className="w-2/4 h-8 bg-gray-300 rounded-md mb-2 animate-pulse" />
         </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div className="relative w-full h-96 overflow-hidden boxShadow">
+    <section className="relative w-full h-96 overflow-hidden boxShadow">
+      <h2 className="hidden">categorias</h2>
       <div className="absolute top-0 left-0 flex animate-scroll md:animate-scrollDesktop">
         {items.concat(items).map((item, index) => (
           <article
@@ -63,7 +64,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

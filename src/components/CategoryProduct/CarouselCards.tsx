@@ -28,11 +28,9 @@ export default function CarouselCard({
     <div className="w-full h-full my-4 flex flex-col items-center justify-center">
       {isloading ? (
         <section className="w-full h-full">
-          <header className="w-full">
-            <h2 className="font-bold text-xl tracking-wider text-blue-950">
-              <div className="w-20 h-4 bg-gray-300 rounded-md mb-2" />
-            </h2>
-          </header>
+          <h2 className="font-bold text-xl tracking-wider text-blue-950 w-full">
+            <div className="w-20 h-4 bg-gray-300 rounded-md mb-2" />
+          </h2>
           <div className="flex overflow-hidden border-y-2 w-full h-80 items-center">
             {[...Array(20)].map((_, index) => (
               <article
@@ -53,11 +51,9 @@ export default function CarouselCard({
         </section>
       ) : (
         <section className="h-full w-full relative">
-          <header className="w-full">
-            <h2 className="font-bold text-xl tracking-wider text-blue-950">
-              {category}
-            </h2>
-          </header>
+          <h2 className="font-bold text-xl tracking-wider text-blue-950 w-full">
+            {category}
+          </h2>
           <div className="relative flex border-y-2 w-full h-80 items-center md:overflow-hidden">
             <Button
               text="<"
