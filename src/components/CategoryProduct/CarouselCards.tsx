@@ -58,37 +58,37 @@ export default function CarouselCard({
               {category}
             </h2>
           </header>
-          <div
-            ref={carousel}
-            className="flex scroll-smooth overflow-scroll overflow-y-hidden border-y-2 w-full h-80 items-center scrollbar scrollbar-thumb-blue-500 scrollbar-thin scrollbar-track-transparent md:overflow-hidden"
-          >
-            {products.map((product, index) => (
-              <article
-                key={`${product.id}-${index}-${Math.random()}`}
-                className="h-[80%] w-40 p-2 border-2 border-blue-300 bg-slate-100 text-xs mx-2 rounded-md"
-              >
-                <CardProduct
-                  key={index}
-                  id={product.id}
-                  title={product.title}
-                  price={product.price}
-                  thumbnail={product.thumbnail}
-                  typeCard="normal"
-                />
-              </article>
-            ))}
-            <div className="absolute top-0 right-0 w-full h-full flex items-center justify-between">
-              <Button
-                text="<"
-                onClick={() => carousel.current && handleScroll('left')}
-                className="bg-white rounded-full h-10 w-10 text-center border-2 border-blue-500 text-blue-950 disabled:opacity-50"
-              />
-              <Button
-                text=">"
-                onClick={() => carousel.current && handleScroll('right')}
-                className="bg-white rounded-full h-10 w-10 text-center border-2 border-blue-500 text-blue-950 disabled:opacity-50"
-              />
+          <div className="relative flex border-y-2 w-full h-80 items-center md:overflow-hidden">
+            <Button
+              text="<"
+              onClick={() => carousel.current && handleScroll('left')}
+              className="absolute left-0 h-full w-10 text-center text-blue-950 disabled:opacity-50 bg-gradient-to-r from-white to-transparent cursor-pointer hover:from-slate-300 text-4xl"
+            />
+            <div
+              ref={carousel}
+              className="flex overflow-scroll scroll-smooth overflow-y-hidden border-y-2 w-full h-80 items-center scrollbar scrollbar-thumb-blue-500 scrollbar-thin scrollbar-track-transparent md:overflow-hidden"
+            >
+              {products.map((product, index) => (
+                <article
+                  key={`${product.id}-${index}-${Math.random()}`}
+                  className="h-[80%] w-40 p-2 border-2 border-blue-300 bg-slate-100 text-xs mx-2 rounded-md"
+                >
+                  <CardProduct
+                    key={index}
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    thumbnail={product.thumbnail}
+                    typeCard="normal"
+                  />
+                </article>
+              ))}
             </div>
+            <Button
+              text=">"
+              onClick={() => carousel.current && handleScroll('right')}
+              className="absolute right-0 h-full w-10 text-center text-blue-950 disabled:opacity-50 bg-gradient-to-l from-white to-transparent cursor-pointer hover:from-slate-300 text-4xl"
+            />
           </div>
         </section>
       )}
