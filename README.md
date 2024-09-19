@@ -29,5 +29,5 @@ Construir esse projeto foi uma grata experiência, pois eu aprendi muito com ele
 - [Design](https://www.figma.com/design/0QmmjgyPvPlP8dJS48Zr0X/BasicShop?m=auto&t=274hggtk0DYPXQK0-1)
 
 
-- [Deploy]()
+- [Deploy](https://basic-shop-nine.vercel.app/)
 
