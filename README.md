@@ -17,6 +17,7 @@ Construir esse projeto foi uma grata experiência, pois eu aprendi muito com ele
 - **LocalStorage**: Utilizado para salvar informações como favoritos e carrinho de compras.
 
 
+
 ## Funcionalidades
 
 - **Busca de Produtos**: Integração com a API do Mercado Livre para exibir produtos e categorias.
@@ -31,3 +32,22 @@ Construir esse projeto foi uma grata experiência, pois eu aprendi muito com ele
 
 - [Deploy](https://basic-shop-nine.vercel.app/)
 
+## 📂 Como Rodar o Projeto Localmente
+
+Siga os passos abaixo para executar o projeto na sua máquina:
+
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/RiqueBruno/basicShop.git](https://github.com/RiqueBruno/basicShop.git)
+
+# 2. Entre na pasta do projeto
+cd basicShop
+
+# 3. Instale as dependências
+npm install
+
+# 4. Rode o projeto
+npm run dev
+# (Nota: Se usar create-react-app, o comando pode ser 'npm start')
+
+# 5. Acesse a URL indicada no terminal (geralmente http://localhost:5173 ou http://localhost:3000) para visualizar.
